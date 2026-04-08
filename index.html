@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal Support for Prisoners - Prototype</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f2f2f2; color: #111; }
+    header { background: #1a73e8; color: white; padding: 20px; text-align: center; }
+    nav { background: #ffffff; padding: 15px; display: flex; gap: 20px; justify-content: center; border-bottom: 1px solid #ddd; align-items:center; }
+    nav a { text-decoration: none; color: #1a73e8; font-weight: bold; }
+    .hero { padding: 50px; text-align: center; background: #e8f0fe; }
+    .hero h1 { margin-bottom: 10px; }
+    .hero p { font-size: 18px; color: #444; }
+    .section { padding: 40px; max-width: 900px; margin: 20px auto; background: white; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+    .card { background: #f7faff; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #d8e3ff; }
+    footer { margin-top: 40px; background: #1a73e8; padding: 20px; color: white; text-align: center; }
+    input, select, textarea { border: 1px solid #ddd; border-radius:6px; }
+    button.primary { margin-top:10px; padding:10px 20px; background:#1a73e8; color:white; border:none; border-radius:6px; cursor:pointer; }
+    /* Responsive & Mobile Navigation */
+    nav { flex-wrap: wrap; }
+    .mobile-menu { display: none; }
+    @media (max-width: 700px) {
+      nav { justify-content: space-between; padding: 10px; }
+      nav a { display: none; }
+      .mobile-menu { display: block; cursor: pointer; color: white; font-weight: bold; }
+      .hero { padding: 30px; }
+      .section { margin: 10px; padding: 20px; }
+    }
+    /* Dark mode */
+    body.dark { background: #111827; color: #e5e7eb; }
+    body.dark header { background: #0f172a; }
+    body.dark nav { background: #0b1220; border-bottom: 1px solid #1f2937; }
+    body.dark .section { background: #0b1220; border: 1px solid #1f2937; color: #e5e7eb; }
+    .toggle-btn { position: fixed; right: 20px; bottom: 20px; padding: 10px 14px; background: #1a73e8; color:white; border-radius: 50px; cursor: pointer; border: none; }
+    .layout-row { display:flex; gap:20px; }
+    .col { flex:1; }
+    .small { max-width:420px; margin:auto; }
+    .badge { display:inline-block; padding:6px 10px; background:#e6f0ff; border-radius:6px; color:#1a73e8; font-weight:600; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Digital Legal Help for Prisoners</h1>
+    <p>Connecting prisoners with legal aid easily & securely</p>
+  </header>
+
+  <nav>
+    <div class="mobile-menu">MENU</div>
+    <a href="#features">Features</a>
+    <a href="#lawyers">For Lawyers</a>
+    <a href="#families">For Families</a>
+    <a href="#login">Login</a>
+    <a href="#signup">Signup</a>
+    <a href="#admin-dashboard">Admin</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <h1>Your Right to Legal Support, Simplified</h1>
+    <p>A platform to connect prisoners with verified legal aid, NGOs, and pro-bono lawyers.</p>
+  </div>
+
+  <div id="features" class="section">
+    <h2>Key Features</h2>
+    <div class="card">
+      <h3>📄 Prisoner Case Profile</h3>
+      <p>View FIR details, hearing dates, assigned lawyer, and bail eligibility.</p>
+    </div>
+    <div class="card">
+      <h3>⚖ Legal Aid Request</h3>
+      <p>Prisoners or families can submit legal aid requests directly and attach documents.</p>
+    </div>
+    <div class="card">
+      <h3>🔒 Secure Communication</h3>
+      <p>Lawyers and prisoners can exchange messages and documents safely with logs for admin.</p>
+    </div>
+    <div class="card">
+      <h3>🤝 NGO & Volunteer Portal</h3>
+      <p>NGOs and pro-bono lawyers can register and accept cases.</p>
+    </div>
+  </div>
+
+  <div id="lawyers" class="section">
+    <h2>For Lawyers</h2>
+    <p>This dashboard helps lawyers access case details, accept new requests, and provide updates.</p>
+    <div class="card">
+      <h3>Case Dashboard</h3>
+      <p>All active and pending cases in one place.</p>
+    </div>
+  </div>
+
+  <div id="families" class="section">
+    <h2>For Prisoner Families</h2>
+    <p>Track case progress, upload required documents, and request legal support.</p>
+    <div class="card">
+      <h3>Case Status Tracking</h3>
+      <p>Know the next hearing date and lawyer updates.</p>
+    </div>
+  </div>
+
+  <div id="login" class="section small">
+    <h2>Login Page</h2>
+    <div class="card">
+      <p>Simple login form for Lawyers, Families, and Admin.</p>
+      <form>
+        <label>Email:</label><br>
+        <input type="text" style="width:100%; padding:8px; margin:5px 0;"><br>
+        <label>Password:</label><br>
+        <input type="password" style="width:100%; padding:8px; margin:5px 0;"><br>
+        <button class="primary">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="signup" class="section small">
+    <h2>Signup Page</h2>
+    <div class="card">
+      <form>
+        <label>Full Name:</label><br>
+        <input type="text" style="width:100%; padding:8px; margin:5px 0;"><br>
+        <label>Role:</label><br>
+        <select style="width:100%; padding:8px; margin:5px 0;">
+          <option>Family</option>
+          <option>Lawyer</option>
+          <option>NGO Volunteer</option>
+          <option>Prison Admin</option>
+        </select><br>
+        <label>Email:</label><br>
+        <input type="email" style="width:100%; padding:8px; margin:5px 0;"><br>
+        <label>Password:</label><br>
+        <input type="password" style="width:100%; padding:8px; margin:5px 0;"><br>
+        <button class="primary">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="prisoner-dashboard" class="section">
+    <h2>Prisoner Dashboard</h2>
+    <div class="layout-row">
+      <div class="col card">
+        <h3>Case Summary</h3>
+        <p>View FIR, Charges, Case Type, Bail Status.</p>
+        <div><span class="badge">Next Hearing: 2025-11-20</span></div>
+      </div>
+      <div class="col card">
+        <h3>Hearing Details</h3>
+        <p>Next hearing date, past hearing updates and notes from lawyer.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="lawyer-dashboard" class="section">
+    <h2>Lawyer Dashboard</h2>
+    <div class="card">
+      <h3>Pending Cases</h3>
+      <p>List of all prisoner case requests with quick-accept buttons.</p>
+    </div>
+    <div class="card">
+      <h3>Active Cases</h3>
+      <p>Ongoing handled cases with progress status and document uploads.</p>
+    </div>
+  </div>
+
+  <div id="case-request" class="section small">
+    <h2>Legal Aid Request Form</h2>
+    <div class="card">
+      <form>
+        <label>Prisoner Name:</label><br>
+        <input type="text" style="width:100%; padding:8px; margin:5px 0;"><br>
+        <label>Case Type:</label><br>
+        <input type="text" style="width:100%; padding:8px; margin:5px 0;"><br>
+        <label>Details:</label><br>
+        <textarea style="width:100%; padding:8px; margin:5px 0;" rows="4"></textarea><br>
+        <button class="primary">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="admin-dashboard" class="section">
+    <h2>Admin Dashboard</h2>
+    <div class="card">
+      <h3>Platform Overview</h3>
+      <p>Quick stats: Total prisoners, Active lawyers, Pending requests, Cases closed.</p>
+    </div>
+    <div class="card">
+      <h3>Manage Users</h3>
+      <p>Approve lawyers/NGOs, assign cases, and view logs.</p>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <p>© 2025 Legal Support Platform | Contact: support@example.com</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleNav() {
+      const links = document.querySelectorAll('nav a');
+      links.forEach(a => { if (a.textContent !== 'MENU') a.style.display = a.style.display === 'block' ? 'none' : 'block'; });
+    }
+
+    // Dark mode toggle
+    function toggleDark() {
+      document.body.classList.toggle('dark');
+      const btn = document.querySelector('.toggle-btn');
+      btn.textContent = document.body.classList.contains('dark') ? 'Light' : 'Dark';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileBtn = document.querySelector('.mobile-menu');
+      mobileBtn.onclick = toggleNav;
+
+      const darkBtn = document.createElement('button');
+      darkBtn.className = 'toggle-btn';
+      darkBtn.textContent = 'Dark';
+      darkBtn.onclick = toggleDark;
+      document.body.appendChild(darkBtn);
+    });
+  </script>
+</body>
+</html>
